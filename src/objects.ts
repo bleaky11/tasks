@@ -10,11 +10,16 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-<<<<<<< HEAD
-    return {id: id, name: name, type: type, body: "", expected: "", options: [], points: 1, published: false};
-=======
-    return {};
->>>>>>> upstream/task-state
+    return {
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false,
+    };
 }
 
 /**
@@ -25,11 +30,7 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-<<<<<<< HEAD
-    return answer.trim().toLowerCase() === question.expected.trim().toLowerCase();
-=======
     return false;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -39,17 +40,7 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-<<<<<<< HEAD
-    const options = question.options.map((option : string): string => option.trim().toLowerCase())
-    if(question.type === "short_answer_question"){
-        return true;
-    }
-    const check = options.some((option: string): boolean => option === answer)
-    return check
-    ;
-=======
     return false;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -59,12 +50,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-<<<<<<< HEAD
-    const shortForm =  JSON.stringify(question.id) + ": " + question.name.slice(0, 10);
-    return shortForm;
-=======
     return "";
->>>>>>> upstream/task-state
 }
 
 /**
@@ -85,17 +71,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-<<<<<<< HEAD
-    if(question.type === "short_answer_question")
-        return "# " + question.name + "\n" + question.body;
-    else{
-        let markdown = "# " + question.name + "\n" + question.body;
-        markdown = question.options.reduce((total: string, option: string) => total + "\n- " + option, markdown);
-        return markdown;
-    }
-=======
     return "";
->>>>>>> upstream/task-state
 }
 
 /**
@@ -103,12 +79,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-<<<<<<< HEAD
-    const renamed = {...question, name: newName}
-    return renamed;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -117,12 +88,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-<<<<<<< HEAD
-    const publish = {...question, published: !question.published}
-    return publish;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -132,12 +98,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-<<<<<<< HEAD
-    const dupe = {...oldQuestion, id: id, name: "Copy of " + oldQuestion.name, published: false}
-    return dupe;
-=======
     return oldQuestion;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -148,12 +109,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-<<<<<<< HEAD
-    const added = {...question, options: [...question.options, newOption]}
-    return added;
-=======
     return question;
->>>>>>> upstream/task-state
 }
 
 /**
@@ -170,12 +126,5 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-<<<<<<< HEAD
-    const merged = {id: id, name: name, body: contentQuestion.body, type: contentQuestion.type,
-        options: contentQuestion.options, expected: contentQuestion.expected, points: points, published: false  
-    }
-    return merged;
-=======
     return contentQuestion;
->>>>>>> upstream/task-state
 }
