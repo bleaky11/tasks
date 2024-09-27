@@ -10,15 +10,21 @@ export function MultipleChoiceQuestion({
 }): React.JSX.Element {
     const [selected, setSelected] = useState<string>(options[0]);
     
-    function changeSelected(event: React.ChangeEvent<HTMLInputElement>){
+    function changeSelected(event: React.ChangeEvent<HTMLSelectElement>){
         setSelected(event.target.value);
     }
     return (
         <div>
             <h3>Multiple Choice Question</h3>
-            {options.map((option : string) => <Form.Check inline key={option} type ="radio" name = {option} 
-            onChange={changeSelected} checked={selected === option} label = {option} value={option}></Form.Check>)}
-            <br></br>Answer: {selected === expectedAnswer? "✔️" : "❌"}
+            <Form.Group controlId="Multiple choice">
+                <Form.Label>What is your favorite letter?</Form.Label>
+                <Form.Select value={selected} onChange={changeSelected}>
+                    {options.map((o: string) => (
+                        <option key = {o} value={o}>{o}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <br></br>Answer: {selected === expectedAnswer ? "✔️" : "❌"}
         </div>
     );
 }
